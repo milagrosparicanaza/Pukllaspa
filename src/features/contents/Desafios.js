@@ -20,11 +20,12 @@ function Desafios() {
       <h3>4. Participa en la competencia de código</h3>
       <p>Si quieres llevar tus habilidades al siguiente nivel, participa en competiciones de programación. Te recomendamos participar en:</p>
       <ul>
-        <li><a href="https://www.hackerrank.com/domains/tutorials/10-days-of-javascript" target="_blank">10 Days of JavaScript (HackerRank)</a></li>
-        <li><a href="https://www.codewars.com/" target="_blank">CodeWars: Resuelve desafíos de código</a></li>
+        <li><a href="https://www.hackerrank.com/domains/tutorials/10-days-of-javascript" target="_blank" rel="noopener noreferrer">10 Days of JavaScript (HackerRank)</a></li>
+        <li><a href="https://www.codewars.com/" target="_blank" rel="noopener noreferrer">CodeWars: Resuelve desafíos de código</a></li>
       </ul>
     </div>
   );
 }
 
 export default Desafios;
+

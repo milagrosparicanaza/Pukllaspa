@@ -1,5 +1,5 @@
 // src/components/glosario/ComponenteGlosarioPracticar.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import './ComponenteGlosarioPracticar.css'; // Asegúrate de importar el archivo CSS
 
 // Función para desordenar el arreglo (barajar aleatoriamente)
@@ -14,7 +14,7 @@ function ComponenteGlosarioPracticar({ glosario }) {
   const [answers, setAnswers] = useState([]); // Para almacenar las opciones de respuesta
 
   // Generar las opciones de respuesta para la pregunta actual
-  const generateOptions = (currentQuestion) => {
+  const generateOptions = useCallback((currentQuestion) => {
     // Escogemos 4 respuestas aleatorias y 1 correcta (la palabra_pregunta)
     const randomAnswers = shuffleArray([
       ...glosario.filter((item) => item.palabra_quechua !== currentQuestion.palabra_quechua)
@@ -23,7 +23,7 @@ function ComponenteGlosarioPracticar({ glosario }) {
     ]);
 
     setAnswers(randomAnswers);
-  };
+  }, [glosario]);
 
   // Cuando cambia la pregunta, generar nuevas opciones
   useEffect(() => {
@@ -31,7 +31,7 @@ function ComponenteGlosarioPracticar({ glosario }) {
     if (currentQuestion) {
       generateOptions(currentQuestion);
     }
-  }, [currentQuestionIndex, glosario]); // Ejecutar solo cuando cambia el índice de la pregunta
+  }, [currentQuestionIndex, glosario, generateOptions]); // Ejecutar solo cuando cambia el índice de la pregunta
 
   // Manejar clic en una respuesta
   const handleAnswerClick = (selectedAnswer) => {
@@ -60,8 +60,13 @@ function ComponenteGlosarioPracticar({ glosario }) {
     <div className="question-container">
       <h2 className="question-title">Pregunta: ¿Cómo se dice "{currentQuestion.palabra_espanol}" en Quechua?</h2>
       <div className="message">{message && <p>{message}</p>}</div> {/* Mostrar el mensaje de felicitaciones o error */}
-{/* Mostrar la imagen del glosario con la URL base añadida */} {currentQuestion.img_glosario ? ( <img src={`http://localhost:3001${currentQuestion.img_glosario}`} alt="Imagen del glosario" className="glosario-image" /> ) : ( <p>No hay imagen disponible</p> )}
-       <div className="answer-buttons">
+      {/* Mostrar la imagen del glosario con la URL base añadida */} 
+      {currentQuestion.img_glosario ? (
+        <img src={`http://localhost:3001${currentQuestion.img_glosario}`} alt="Imagen del glosario" className="glosario-image" />
+      ) : (
+        <p>No hay imagen disponible</p>
+      )}
+      <div className="answer-buttons">
         {/* Mostrar las opciones de respuesta como botones */}
         {answers.map((item, index) => (
           <button 
