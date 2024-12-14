@@ -8,7 +8,8 @@ import Minijuegos from '../features/contents/Minijuegos';
 import Perfil from '../features/contents/Perfil';
 import Soporte from '../features/contents/Soporte';
 import Mas from "../features/contents/Mas";
-import Login from "../features/contents/Login";
+//import Login from "../features/contents/Login";
+import Login from '../features/contents/Login';  // Asegúrate de que la ruta sea correcta
 import NotFound from "../features/contents/NotFound";
 import Layout from "../components/principal/Layout";
 import PublicLayout from "../components/principal/PublicLayout";

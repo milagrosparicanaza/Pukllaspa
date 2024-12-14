@@ -1,16 +1,15 @@
-// src/features/contents/Login.js
 import React, { useState, useEffect } from "react";
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { confirmarUsuario } from "../../components/usuario/Usuario";
-import styles from './Login.module.css'; // Asegúrate de importar el archivo CSS
+import styles from './Login.module.css';
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(""); // Estado para manejar el error
-  const { login, isAuthenticated } = useAuth(); // Asegúrate de obtener isAuthenticated
-  const navigate = useNavigate(); // Hook de react-router para la navegación
+  const { login, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -26,7 +25,6 @@ function Login() {
     }
   };
 
-  // Usar useEffect para observar el cambio en isAuthenticated
   useEffect(() => {
     if (isAuthenticated) {
       navigate("/aprender");
@@ -75,4 +73,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Login;  // Asegúrate de que esta línea esté presente
