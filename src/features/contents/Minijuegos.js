@@ -61,7 +61,7 @@ const InterfazMostrarContenidoJuego = ({ cambiarInterface, id_claseActual }) => 
           allowFullScreen
           width="960"
           height="620"
-          title="Minijuego"
+          title="Minijuego 1"
         >
           <a href="https://elvis51223920.itch.io/findwods">Play findwods on itch.io</a>
         </iframe>
@@ -103,27 +103,44 @@ const InterfazMostrarContenidoJuego = ({ cambiarInterface, id_claseActual }) => 
     );
   }
 
+  if (id_claseActual === 4) {
+    content = (
+      <div>
+        <iframe
+          src="https://example.com/minijuego4"
+          frameBorder="0"
+          allowFullScreen
+          width="960"
+          height="640"
+          title="Minijuego 4"
+        >
+          <a href="https://example.com/minijuego4">Play Minijuego 4 on example.com</a>
+        </iframe>
+      </div>
+    );
+  }
+
   return (
     <div>
       {content} {/* Esto renderiza el contenido basado en id_claseActual */}
-
+      
       {/* Este botón se muestra siempre al final */}
       <div>
         <button
           onClick={() => cambiarInterface('A')}
           style={{
-            backgroundColor: '#007BFF', // Azul
-            color: '#fff', // Texto blanco
-            border: 'none', // Sin borde
-            borderRadius: '5px', // Bordes redondeados
-            padding: '10px 20px', // Espaciado interno
-            fontSize: '16px', // Tamaño de fuente
-            cursor: 'pointer', // Cursor de mano al pasar por encima
-            transition: 'background-color 0.3s', // Efecto suave en el cambio de color
-            marginRight: '10px', // Separación entre los botones
+            backgroundColor: '#007BFF',  // Azul
+            color: '#fff',               // Texto blanco
+            border: 'none',              // Sin borde
+            borderRadius: '5px',         // Bordes redondeados
+            padding: '10px 20px',        // Espaciado interno
+            fontSize: '16px',            // Tamaño de fuente
+            cursor: 'pointer',           // Cursor de mano al pasar por encima
+            transition: 'background-color 0.3s',  // Efecto suave en el cambio de color
+            marginRight: '10px',         // Separación entre los botones
           }}
           onMouseEnter={(e) => (e.target.style.backgroundColor = '#0056b3')} // Cambio de color al pasar el mouse
-          onMouseLeave={(e) => (e.target.style.backgroundColor = '#007BFF')} // Vuelve al color original
+          onMouseLeave={(e) => (e.target.style.backgroundColor = '#007BFF')}  // Vuelve al color original
         >
           Atrás
         </button>
