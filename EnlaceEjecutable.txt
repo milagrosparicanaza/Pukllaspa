@@ -1,3 +1,7 @@
 enlace: https://pukllaspa.netlify.app/login
 usuario: Elvis_123
 contraseña: Elvis_123
+
+Juego 1: https://itch.io/embed-upload/11931519?color=333333 
+Juego 2: https://itch.io/embed-upload/12247223?color=333333
+Juego 3: https://itch.io/embed-upload/12251348?color=333333
